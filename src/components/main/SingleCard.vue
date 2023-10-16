@@ -2,6 +2,7 @@
 export default {
   name: 'SingleCard',
   props:['proprietyTv']
+  
 }
 
 </script>
