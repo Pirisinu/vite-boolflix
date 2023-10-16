@@ -1,13 +1,33 @@
 <script>
+import axios from 'axios';
+import { store } from '../../data/store';
 export default {
-  name: 'SingleCardMovie'
+  name: 'SingleCardMovie',
+  data(){
+    return{
+      store,
+      moviesArray:[]
+    }
+  },
+  created(){
+    //FILM AXIOS
+    axios.get(store.apiUrlMovie+store.apiKey)
+      .then( (res) => {
+        this.moviesArray = res.data.results
+      } )
+      .catch( (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
 
 </script>
 
 <template>
-  <div class="single-card movie">
-    
+  <div class="single-card movie" v-for="movie in moviesArray"
+    :key="movie.id">
+    {{ movie.title }}
   </div>
 </template>
 
