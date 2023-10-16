@@ -36,8 +36,8 @@ export default {
 </script>
 
 <template>
+  <h2>Serie tv</h2>
   <div class="container-cards">
-    <h2>Serie tv</h2>
     <SingleCard 
       class="cards-box"
       v-for="serieTv in store.seriesTvArray"
@@ -55,9 +55,10 @@ export default {
 
 <style lang="scss" scoped>
 .container-cards{
+  display: flex;
+  flex-wrap: wrap;
   color: wheat;
   .cards-box{
-    display: flex;
     height: 500px;
     width: calc(100% / 6 - 10px);
     background-color: red;
