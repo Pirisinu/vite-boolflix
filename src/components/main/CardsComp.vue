@@ -39,7 +39,7 @@ export default {
   <div class="container-cards">
     <h2>Serie tv</h2>
     <SingleCard 
-      class="card-box"
+      class="cards-box"
       v-for="serieTv in store.seriesTvArray"
       :key="serieTv.id"
       :proprietyTv="serieTv"
@@ -58,8 +58,11 @@ export default {
   color: wheat;
   .cards-box{
     display: flex;
-    flex-wrap: wrap;
-    padding: 15px;
+    height: 500px;
+    width: calc(100% / 6 - 10px);
+    background-color: red;
+    margin: 5px;
+    color: white;
   }
 }
 </style>
