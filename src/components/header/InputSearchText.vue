@@ -5,7 +5,10 @@ export default {
 </script>
 
 <template>
-  <span>Ciao da InputSearchText</span>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Cerca per nome" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
 </template>
 
 <style>

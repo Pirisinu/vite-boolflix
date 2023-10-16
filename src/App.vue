@@ -12,11 +12,16 @@ export default {
 </script>
 
 <template>
-  <h1>ciao da app</h1>
-  <HeaderComp />
-  <MainComp />
+  <div class="app">
+    <HeaderComp />
+    <MainComp />
+  </div>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" >
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 </style>

@@ -12,11 +12,36 @@ export default {
 </script>
 
 <template>
-  <span>Ciao da header</span>
-  <InputSearchText />
-  <InputSelect />
+  <div class="headBox">
+    <div class="logo">
+      <img src="/public/logo-boolflix.png" alt="BOOLFIX">
+    </div>
+    <div class="input-box">
+      <InputSearchText />
+      <InputSelect />
+    </div>
+  </div>
 </template>
 
-<style>
-
+<style lang="scss" scoped>
+.headBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: black;
+  .logo{
+    height: 50%;
+    width: 150px;
+    
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .input-box{
+    display: flex;
+    align-items: center;
+  }
+}
 </style>
