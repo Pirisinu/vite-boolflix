@@ -13,10 +13,19 @@ export default {
   data(){
     return{
       store,
+      moviesArray:[],
       seriesTvArray: []
     }
   },
   created(){
+    //FILM AXIOS
+    axios.get(store.apiUrlMovie+store.apiKey)
+      .then( (res) => {
+        this.moviesArray = res.data.results
+      } )
+      .catch( (err) => {
+        console.log(err);
+      });
     //sERIE TV AXIOS
     axios.get(store.apiUrlTv+store.apiKey)
       .then( (res) => {
@@ -39,8 +48,9 @@ export default {
     </div>
 
     <h2>Film</h2>
-    <div class="cards-box movie">
-    <SingleCardMovie />
+    <div class="cards-box movie" v-for="movie in moviesArray"
+    :key="movie.id">
+    {{ movie.title }}
     </div>
   </div>
 </template>
