@@ -10,9 +10,15 @@ export default {
 </script>
 
 <template>
-  <CardsComp />
+  <main>
+    <CardsComp />
+  </main>
 </template>
 
 <style>
-
+main{
+  background-color: #434343;
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+}
 </style>

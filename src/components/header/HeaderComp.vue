@@ -28,7 +28,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 80px;
   background-color: black;
   .logo{
     height: 50%;
