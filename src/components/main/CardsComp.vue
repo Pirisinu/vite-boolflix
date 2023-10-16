@@ -36,13 +36,13 @@ export default {
 </script>
 
 <template>
-  <SingleCard />
+  <h2>Serie tv</h2>
+  <SingleCard 
+    v-for="serieTv in store.seriesTvArray"
+    :key="serieTv.id"
+    :proprietyTv="serieTv"
+    />
   <div class="container-cards">
-    <h2>Serie tv</h2>
-    <div class="cards-box" v-for="serieTv in store.seriesTvArray"
-    :key="serieTv.id">
-    {{ serieTv.name }}
-    </div>
 
     <h2>Film</h2>
     <div class="cards-box" v-for="movie in store.moviesArray"
