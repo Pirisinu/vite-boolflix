@@ -1,17 +1,17 @@
 <script>
 export default {
-  name: 'SingleCardTv'
+  name: 'SingleCard'
 }
 
 </script>
 
 <template>
-  <div class="single-card tv"></div>
+  <div class="single-card"></div>
 </template>
 
 <style lang="scss" scoped>
 .single-card{
-  height: 200px;
+  height: 500px;
   width: calc(100% / 6 - 10px);
   background-color: red;
   margin: 5px;

@@ -2,26 +2,22 @@
 import axios from 'axios';
 import { store } from '../../data/store'
 
-import SingleCardMovie from './SingleCardMovie.vue';
-import SingleCardTv from './SingleCardTv.vue';
+import SingleCard from './SingleCard.vue';
 export default {
   name: 'CardsComp',
   components: { 
-    SingleCardTv,
-    SingleCardMovie
+    SingleCard
   },
   data(){
     return{
-      store,
-      moviesArray:[],
-      seriesTvArray: []
+      store
     }
   },
   created(){
     //FILM AXIOS
     axios.get(store.apiUrlMovie+store.apiKey)
       .then( (res) => {
-        this.moviesArray = res.data.results
+        store.moviesArray = res.data.results
       } )
       .catch( (err) => {
         console.log(err);
@@ -30,7 +26,7 @@ export default {
     axios.get(store.apiUrlTv+store.apiKey)
       .then( (res) => {
         console.log(res.data.results);
-        this.seriesTvArray = res.data.results
+        store.seriesTvArray = res.data.results
       } )
       .catch( (err) => {
         console.log(err);
@@ -40,15 +36,16 @@ export default {
 </script>
 
 <template>
+  <SingleCard />
   <div class="container-cards">
     <h2>Serie tv</h2>
-    <div class="cards-box tv" v-for="serieTv in seriesTvArray"
+    <div class="cards-box" v-for="serieTv in store.seriesTvArray"
     :key="serieTv.id">
     {{ serieTv.name }}
     </div>
 
     <h2>Film</h2>
-    <div class="cards-box movie" v-for="movie in moviesArray"
+    <div class="cards-box" v-for="movie in store.moviesArray"
     :key="movie.id">
     {{ movie.title }}
     </div>
