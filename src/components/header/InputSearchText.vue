@@ -8,7 +8,7 @@ export default {
     }
   },
   mounted(){
-    console.log(store.searchText);
+    console.log(store.selectedByTxt);
   }
 }
 </script>
@@ -18,12 +18,14 @@ export default {
      
      <input 
      type="search" 
-     name="" class="input-search"  
-     v-model="store.searchText" 
-     @keypress.enter="$emit('search')" 
+     name="" 
+     class="input-search"  
+     v-model="store.selectedByTxt" 
+     @keyup.enter="store.doSearch=true" 
      >
 
-     <button  @click="$emit('search') ">Cerca</button>
+     <button  @click="store.doSearch=true">Cerca</button>
+
     </div>
 
 </template>

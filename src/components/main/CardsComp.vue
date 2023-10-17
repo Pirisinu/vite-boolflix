@@ -10,27 +10,46 @@ export default {
   },
   data(){
     return{
-      store
+      store,
+      doSearch: store.doSearch
     }
   },
-  created(){
-  //FILM AXIOS
-  axios.get(store.apiUrlMovie+store.apiKey)
-    .then( (res) => {
-      store.moviesArray = res.data.results
-    } )
-    .catch( (err) => {
-      console.log(err);
-    });
-  //sERIE TV AXIOS
-  axios.get(store.apiUrlTv+store.apiKey)
-    .then( (res) => {
-      console.log(res.data.results);
-      store.seriesTvArray = res.data.results
-    } )
-    .catch( (err) => {
-      console.log(err);
-    });
+  watch:{
+    'store.doSearch'(){
+      this.getApi();
+      console.log(store.selectedByTxt)
+      store.doSearch = false
+    }
+  },
+  methods:{
+    getApi(){
+      axios.get(store.apiUrlMovie, {
+        params:{
+          api_key: store.apiKey,
+          query: store.selectedByTxt
+        }
+      })
+      .then( (res) => {
+        store.moviesArray = res.data.results
+      } )
+      .catch( (err) => {
+        console.log(err);
+      });
+    //sERIE TV AXIOS
+    axios.get(store.apiUrlTv, {
+        params:{
+          api_key: store.apiKey,
+          query: store.selectedByTxt
+        }
+      })
+      .then( (res) => {
+        console.log(res.data.results);
+        store.seriesTvArray = res.data.results
+      } )
+      .catch( (err) => {
+        console.log(err);
+      });
+    }
   }
 }
 
@@ -43,7 +62,7 @@ export default {
       class="cards-box"
       v-for="serieTv in store.seriesTvArray"
       :key="serieTv.id"
-      :proprietyTv="serieTv"
+      :propriety="serieTv"
       />
     </div>
 
@@ -53,8 +72,7 @@ export default {
         class="cards-box"
         v-for="movie in store.moviesArray"
         :key="movie.id"
-        :tvImg="movie.backdrop_path"
-        :proprietyMovie="movie"
+        :propriety="movie"
         />
     </div>
 </template>

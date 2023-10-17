@@ -2,16 +2,16 @@
 import { store } from '../../data/store'
 export default {
   name: 'SingleCard',
-  props:['propriety','proprietyMovie'],
+  props:['proprietyTv','proprietyMovie'],
   data(){
     return{
       store,
-      movieUrl:`'https://image.tmdb.org/t/p/w1280' + proprietyMovie.backdrop_path`,
-      tvUrl:'`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path'
+      movieUrl:'https://image.tmdb.org/t/p/w1280`+ proprietyTv.backdrop_path',
+      tvUrlImg:'https://image.tmdb.org/t/p/w1280`+ proprietyMovie.backdrop_path'
     }
   },
   mounted(){
-    console.log(this.tvUrl);
+    console.log('props' + proprietyTv);
   }
   
 }
@@ -20,8 +20,8 @@ export default {
 
 <template>
   <div class="single-card">
-    <img :src="`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path" alt="">
-    <h3>{{ propriety.name }}</h3>
+    <img :src="this.tvUrlImg" alt="">
+    <h3>{{ proprietyTv.name }}</h3>
     <h4>{{  }}</h4>
   </div>
 </template>
