@@ -56,16 +56,18 @@ export default {
 </script>
 
 <template>
-  <h2>Serie tv</h2>
-  <div class="container-cards">
-    <SingleCard 
-      class="cards-box"
-      v-for="serieTv in store.seriesTvArray"
-      :key="serieTv.id"
-      :propriety="serieTv"
+  <h2 v-if="store.seriesTvArray < 1">Cerca un film o una serie</h2>
+  <div v-else>
+    <h2>Serie tv</h2>
+    <div class="container-cards">
+      <SingleCard 
+        class="cards-box"
+        v-for="serieTv in store.seriesTvArray"
+        :key="serieTv.id"
+        :propriety="serieTv"
       />
     </div>
-
+  
     <h2>Film</h2>
     <div class="container-cards">
       <SingleCard 
@@ -75,6 +77,9 @@ export default {
         :propriety="movie"
         />
     </div>
+  </div>
+
+  
 </template>
 
 <style lang="scss" scoped>
@@ -86,13 +91,18 @@ h2{
 .container-cards{
   display: flex;
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 25px;
   .cards-box{
     height: 500px;
-    width: calc(100% / 6 - 10px);
-    background-color: red;
-    margin: 5px;
+    width: calc(100% / 6 - 50px);
+    background-color: #c0000d;
+    margin: 25px;
+    border-radius: 5px;
+    box-shadow: 5px 10px 10px black;
     color: white;
+    &:hover{
+      scale: 1.1;
+    }
   }
 }
 </style>
