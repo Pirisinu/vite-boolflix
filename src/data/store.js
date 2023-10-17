@@ -6,6 +6,7 @@ export const store = reactive(
     apiUrlTv: 'https://api.themoviedb.org/3/discover/tv',
     apiUrlMovie: 'https://api.themoviedb.org/3/discover/movie',
     moviesArray:[],
-    seriesTvArray: []
+    seriesTvArray:[],
+    selectedByTxt: ''
   }
 )

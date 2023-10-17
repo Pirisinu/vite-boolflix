@@ -1,16 +1,50 @@
 <script>
+import { store } from '../../data/store';
 export default {
-  name: 'InputSearchText'
+  name: 'InputSearchText',
+  data(){
+    return{
+      store
+    }
+  },
+  mounted(){
+    console.log(store.searchText);
+  }
 }
 </script>
 
 <template>
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Cerca per nome" aria-label="Username" aria-describedby="basic-addon1">
-</div>
+   <div class="input-container">
+     
+     <input 
+     type="search" 
+     name="" class="input-search"  
+     v-model="store.searchText" 
+     @keypress.enter="$emit('search')" 
+     >
+
+     <button  @click="$emit('search') ">Cerca</button>
+    </div>
 
 </template>
 
-<style>
-
+<style lang="scss">
+button{
+    background-color: crimson;
+    margin: 0px 25px;
+    color: wheat;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.input-container{
+    margin: 0px 30px;
+}
+.input-search{
+    padding: 5px;
+    font-size: 15px;
+}
 </style>

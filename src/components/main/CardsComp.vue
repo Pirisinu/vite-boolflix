@@ -14,25 +14,26 @@ export default {
     }
   },
   created(){
-    //FILM AXIOS
-    axios.get(store.apiUrlMovie+store.apiKey)
-      .then( (res) => {
-        store.moviesArray = res.data.results
-      } )
-      .catch( (err) => {
-        console.log(err);
-      });
-    //sERIE TV AXIOS
-    axios.get(store.apiUrlTv+store.apiKey)
-      .then( (res) => {
-        console.log(res.data.results);
-        store.seriesTvArray = res.data.results
-      } )
-      .catch( (err) => {
-        console.log(err);
-      });
+  //FILM AXIOS
+  axios.get(store.apiUrlMovie+store.apiKey)
+    .then( (res) => {
+      store.moviesArray = res.data.results
+    } )
+    .catch( (err) => {
+      console.log(err);
+    });
+  //sERIE TV AXIOS
+  axios.get(store.apiUrlTv+store.apiKey)
+    .then( (res) => {
+      console.log(res.data.results);
+      store.seriesTvArray = res.data.results
+    } )
+    .catch( (err) => {
+      console.log(err);
+    });
   }
 }
+
 </script>
 
 <template>
@@ -44,20 +45,30 @@ export default {
       :key="serieTv.id"
       :proprietyTv="serieTv"
       />
+    </div>
 
     <h2>Film</h2>
-    <div class="cards-box" v-for="movie in store.moviesArray"
-    :key="movie.id">
-    {{ movie.title }}
+    <div class="container-cards">
+      <SingleCard 
+        class="cards-box"
+        v-for="movie in store.moviesArray"
+        :key="movie.id"
+        :tvImg="movie.backdrop_path"
+        :proprietyMovie="movie"
+        />
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
+
+h2{
+  color: wheat;
+  font-size: 3.5rem;
+}
 .container-cards{
   display: flex;
   flex-wrap: wrap;
-  color: wheat;
+  padding: 5px;
   .cards-box{
     height: 500px;
     width: calc(100% / 6 - 10px);

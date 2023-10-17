@@ -20,5 +20,6 @@ main{
   background-color: #434343;
   height: calc(100vh - 80px);
   overflow-y: scroll;
+  padding: 10px;
 }
 </style>
