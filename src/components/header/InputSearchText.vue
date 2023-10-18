@@ -6,9 +6,6 @@ export default {
     return{
       store
     }
-  },
-  mounted(){
-    console.log(store.selectedByTxt);
   }
 }
 </script>

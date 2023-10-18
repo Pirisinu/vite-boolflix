@@ -17,7 +17,6 @@ export default {
   watch:{
     'store.doSearch'(){
       this.getApi();
-      console.log(store.selectedByTxt)
       store.doSearch = false
     }
   },

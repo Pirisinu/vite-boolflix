@@ -1,12 +1,10 @@
 <script>
 import InputSearchText from './InputSearchText.vue';
-import InputSelect from './InputSelect.vue';
 
 export default {
   name: 'HeaderComp',
   components: {
-    InputSearchText,
-    InputSelect
+    InputSearchText
   }
 }
 </script>
@@ -18,7 +16,6 @@ export default {
     </div>
     <div class="input-box">
       <InputSearchText />
-      <InputSelect />
     </div>
   </div>
 </template>

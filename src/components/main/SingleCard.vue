@@ -7,8 +7,8 @@ export default {
   data(){
     return{
       store,
-      movieUrl:`'https://image.tmdb.org/t/p/w1280' + proprietyMovie.backdrop_path`,
-      tvUrl:'`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path',
+      movieUrl:`'https://image.tmdb.org/t/p/w342' + proprietyMovie.poster_path`,
+      tvUrl:'`https://image.tmdb.org/t/p/w342`+ propriety.poster_path',
       flags:['it','en']
     }
   },
@@ -32,7 +32,7 @@ export default {
   <div class="single-card">
     <div class="card-container">
       <div class="card-front">
-        <img :src="`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path" alt="IMG NOT FOUND">
+        <img :src="`https://image.tmdb.org/t/p/w342`+ propriety.poster_path" alt="IMG NOT FOUND">
         <div class="title-container">
           <h3 class="title">{{ propriety.name || propriety.title }}</h3>
         </div>
@@ -113,7 +113,7 @@ export default {
         text-align: center;
 
         .language{
-          width: 80%;
+          width: 60%;
           margin: 0 auto;
 
           img{
