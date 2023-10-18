@@ -42,7 +42,6 @@ export default {
         }
       })
       .then( (res) => {
-        console.log(res.data.results);
         store.seriesTvArray = res.data.results
       } )
       .catch( (err) => {

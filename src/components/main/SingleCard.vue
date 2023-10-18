@@ -40,7 +40,7 @@ export default {
       <div class="card-back">
         <div class="propriety-container">
           <h3>{{ propriety.name || propriety.title }}</h3>
-          <h5>Nome Originale: {{ propriety.original_name || propriety.original_title }}</h5>
+          <h5 v-if="propriety.name !== propriety.original_name || propriety.title !== propriety.original_title " >Nome Originale: {{ propriety.original_name || propriety.original_title }}</h5>
 
           <div v-if="this.flags.includes(propriety.original_language)" class="language">
             <h5>Lingua:</h5>
