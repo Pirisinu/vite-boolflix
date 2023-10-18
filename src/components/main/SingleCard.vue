@@ -7,7 +7,13 @@ export default {
     return{
       store,
       movieUrl:`'https://image.tmdb.org/t/p/w1280' + proprietyMovie.backdrop_path`,
-      tvUrl:'`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path'
+      tvUrl:'`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path',
+      flags:['it','en']
+    }
+  },
+  methods:{
+    getImage(img){
+      return new URL(`../../assets/img/${img}.png`, import.meta.url).href
     }
   },
   mounted(){
@@ -22,7 +28,7 @@ export default {
   <div class="single-card">
     <div class="card-container">
       <div class="card-front">
-        <img :src="`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path" alt="">
+        <img :src="`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path" alt="IMG NOT FOUND">
         <div class="title-container">
           <h3 class="title">{{ propriety.name || propriety.title }}</h3>
         </div>
@@ -31,7 +37,12 @@ export default {
         <div class="propriety-container">
           <h3>{{ propriety.name || propriety.title }}</h3>
           <h5>Nome Originale: {{ propriety.original_name || propriety.original_title }}</h5>
-          <h5>Lingua: {{ propriety.original_language }}</h5>
+
+          <div v-if="this.flags.includes(propriety.original_language)" class="language">
+            <h5>Lingua:</h5>
+            <img v-if="this.flags.includes(propriety.original_language)" :src="getImage(propriety.original_language)" alt="">
+          </div>
+          <h5 v-else >Lingua: {{ propriety.original_language }}</h5>
           <h5>Voto: {{ propriety.vote_average }}</h5>
         </div>
       </div>
@@ -56,7 +67,7 @@ export default {
     }
     .card-front{
       transform: rotateY(0deg);
-
+      
       img{
         width: 100%;
         height: 100%;
@@ -73,7 +84,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: end;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.1);
         color: white;
         z-index: 1;
       }
@@ -94,6 +105,15 @@ export default {
         flex-direction: column;
         justify-content: space-evenly;
         text-align: center;
+
+        .language{
+          width: 80%;
+          margin: 0 auto;
+
+          img{
+            width: 100%;
+          }
+        }
       }
     }
   }

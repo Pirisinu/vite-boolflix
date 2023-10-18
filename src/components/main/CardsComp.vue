@@ -95,7 +95,8 @@ h2{
   .cards-box{
     height: 500px;
     width: calc(100% / 6 - 50px);
-    background-color: #c0000d;
+    background: rgb(192,0,13);
+background: radial-gradient(circle, rgba(192,0,13,1) 0%, rgba(0,0,0,1) 100%);
     margin: 25px;
     border-radius: 5px;
     box-shadow: 5px 10px 10px black;
