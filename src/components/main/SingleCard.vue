@@ -1,5 +1,6 @@
 <script>
 import { store } from '../../data/store'
+import StarsComp from './StarsComp.vue'
 export default {
   name: 'SingleCard',
   props:['propriety','proprietyMovie'],
@@ -10,6 +11,9 @@ export default {
       tvUrl:'`https://image.tmdb.org/t/p/w1280`+ propriety.backdrop_path',
       flags:['it','en']
     }
+  },
+  components:{
+    StarsComp
   },
   methods:{
     getImage(img){
@@ -43,7 +47,9 @@ export default {
             <img v-if="this.flags.includes(propriety.original_language)" :src="getImage(propriety.original_language)" alt="">
           </div>
           <h5 v-else >Lingua: {{ propriety.original_language }}</h5>
-          <h5>Voto: {{ propriety.vote_average }}</h5>
+          <StarsComp :vote="propriety.vote_average"/>
+          
+          
         </div>
       </div>
     </div>
