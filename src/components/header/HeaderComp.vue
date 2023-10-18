@@ -28,9 +28,9 @@ export default {
   height: 80px;
   background-color: black;
   .logo{
-    height: 50%;
-    width: 150px;
-    
+    height: 60%;
+    width: 190px;
+    margin-left: 15px;
     img{
       width: 100%;
       height: 100%;
